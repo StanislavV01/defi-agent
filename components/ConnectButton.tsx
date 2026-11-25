@@ -21,14 +21,15 @@ export function ConnectButton() {
     );
   }
 
-  const injected = connectors[0];
+  const wallet = connectors[0];
   return (
     <button
-      disabled={!injected || isPending}
-      onClick={() => injected && connect({ connector: injected })}
+      disabled={!wallet || isPending}
+      onClick={() => wallet && connect({ connector: wallet })}
+      title={wallet ? `Connect ${wallet.name}` : "Install MetaMask or Rabby to connect"}
       className="rounded-lg bg-violet-600 px-3 py-1.5 text-sm font-medium hover:bg-violet-500 disabled:opacity-50"
     >
-      {isPending ? "Connecting…" : "Connect wallet"}
+      {isPending ? "Connecting…" : wallet ? `Connect ${wallet.name}` : "No wallet found"}
     </button>
   );
 }
