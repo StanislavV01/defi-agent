@@ -14,5 +14,6 @@ jobs:
         with:
           node-version: 22
       - run: npm install
+      - run: npm run lint
       # next build also runs the TypeScript check
       - run: npm run build
